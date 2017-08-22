@@ -2,8 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  template: `<p>
+  button works!
+</p>
+
+<button (click)="onClick()">Click here</button>`,
+  styles: [`
+    button {
+      background-color: orange;
+      width: 200px;
+    }`]
 })
 export class ButtonComponent implements OnInit {
 

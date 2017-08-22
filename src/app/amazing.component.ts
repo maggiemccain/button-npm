@@ -2,8 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-amazing',
-  templateUrl: './amazing.component.html',
-  styleUrls: ['./amazing.component.css']
+  template: `<h1>
+  Amazing works! 
+</h1>
+`,
+  styles: [`
+    h1 {
+      color: pink;
+    }`]
 })
 export class AmazingComponent {
   title = 'app works!';

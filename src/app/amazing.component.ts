@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-amazing',
-  template: `<h1>
-  Amazing works! 
+  template: `<h1 [innerHTML]="title">
 </h1>
 `,
   styles: [`
@@ -12,5 +11,5 @@ import { Component } from '@angular/core';
     }`]
 })
 export class AmazingComponent {
-  title = 'app works!';
+  title = 'this thing works!';
 }

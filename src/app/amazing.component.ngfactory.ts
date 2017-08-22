@@ -13,6 +13,8 @@ import * as import4 from '@angular/core/src/metadata/view';
 import * as import5 from '@angular/core/src/linker/view_type';
 import * as import6 from '@angular/core/src/change_detection/constants';
 import * as import7 from '@angular/core/src/linker/component_factory';
+import * as import8 from '@angular/core/src/change_detection/change_detection_util';
+import * as import9 from '@angular/core/src/security';
 export class Wrapper_AmazingComponent {
   /*private*/ _eventHandler:Function;
   context:import0.AmazingComponent;
@@ -78,13 +80,15 @@ export class View_AmazingComponent0 extends import1.AppView<import0.AmazingCompo
   _el_0:any;
   _text_1:any;
   _text_2:any;
+  /*private*/ _expr_3:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_AmazingComponent0,renderType_AmazingComponent,import5.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
+    this._expr_3 = import8.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import7.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
     this._el_0 = import3.createRenderElement(this.renderer,parentRenderNode,'h1',import3.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_1 = this.renderer.createText(this._el_0,'\n  Amazing works! \n',(null as any));
+    this._text_1 = this.renderer.createText(this._el_0,'\n',(null as any));
     this._text_2 = this.renderer.createText(parentRenderNode,'\n',(null as any));
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
@@ -93,5 +97,12 @@ export class View_AmazingComponent0 extends import1.AppView<import0.AmazingCompo
     ]
     ),(null as any));
     return (null as any);
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    const currVal_3:any = this.context.title;
+    if (import3.checkBinding(throwOnChange,this._expr_3,currVal_3)) {
+      this.renderer.setElementProperty(this._el_0,'innerHTML',this.viewUtils.sanitizer.sanitize(import9.SecurityContext.HTML,currVal_3));
+      this._expr_3 = currVal_3;
+    }
   }
 }

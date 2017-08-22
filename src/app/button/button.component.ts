@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   button works!
 </p>
 
-<button (click)="onClick()">Click here</button>`,
+<button (click)="onClick()">{{message}}</button>`,
   styles: [`
     button {
       background-color: orange;
@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
     }`]
 })
 export class ButtonComponent implements OnInit {
+  message = 'click the button';
 
   constructor() { }
 

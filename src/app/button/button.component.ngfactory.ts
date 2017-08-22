@@ -13,6 +13,7 @@ import * as import4 from '@angular/core/src/metadata/view';
 import * as import5 from '@angular/core/src/linker/view_type';
 import * as import6 from '@angular/core/src/change_detection/constants';
 import * as import7 from '@angular/core/src/linker/component_factory';
+import * as import8 from '@angular/core/src/change_detection/change_detection_util';
 export class Wrapper_ButtonComponent {
   /*private*/ _eventHandler:Function;
   context:import0.ButtonComponent;
@@ -81,8 +82,10 @@ export class View_ButtonComponent0 extends import1.AppView<import0.ButtonCompone
   _text_2:any;
   _el_3:any;
   _text_4:any;
+  /*private*/ _expr_5:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import1.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_ButtonComponent0,renderType_ButtonComponent,import5.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import6.ChangeDetectorStatus.CheckAlways);
+    this._expr_5 = import8.UNINITIALIZED;
   }
   createInternal(rootSelector:string):import7.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
@@ -90,7 +93,7 @@ export class View_ButtonComponent0 extends import1.AppView<import0.ButtonCompone
     this._text_1 = this.renderer.createText(this._el_0,'\n  button works!\n',(null as any));
     this._text_2 = this.renderer.createText(parentRenderNode,'\n\n',(null as any));
     this._el_3 = import3.createRenderElement(this.renderer,parentRenderNode,'button',import3.EMPTY_INLINE_ARRAY,(null as any));
-    this._text_4 = this.renderer.createText(this._el_3,'Click here',(null as any));
+    this._text_4 = this.renderer.createText(this._el_3,'',(null as any));
     var disposable_0:Function = import3.subscribeToRenderElement(this,this._el_3,new import3.InlineArray2(2,'click',(null as any)),this.eventHandler(this.handleEvent_3));
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._el_0,
@@ -101,6 +104,13 @@ export class View_ButtonComponent0 extends import1.AppView<import0.ButtonCompone
     ]
     ),[disposable_0]);
     return (null as any);
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    const currVal_5:any = import3.inlineInterpolate(1,'',this.context.message,'');
+    if (import3.checkBinding(throwOnChange,this._expr_5,currVal_5)) {
+      this.renderer.setText(this._text_4,currVal_5);
+      this._expr_5 = currVal_5;
+    }
   }
   handleEvent_3(eventName:string,$event:any):boolean {
     this.markPathToRootAsCheckOnce();
